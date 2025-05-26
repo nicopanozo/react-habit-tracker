@@ -1,0 +1,34 @@
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.btn:focus-visible,
+.form-input:focus-visible,
+.filter-select:focus-visible,
+.day-checkbox:focus-visible,
+.theme-toggle:focus-visible,
+.expand-toggle:focus-visible,
+.color-option:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+  }
+  
+  [data-theme="dark"] {
+    --border-color: #ffffff;
+  }
+}

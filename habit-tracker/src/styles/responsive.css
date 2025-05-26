@@ -1,0 +1,181 @@
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ============================================ */
+
+/* Mobile devices (up to 480px) */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  .header-content {
+    padding: 0 0.75rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .header-actions {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .habits-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .habit-card {
+    padding: 1rem;
+  }
+  
+  .habit-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .habit-actions {
+    justify-content: center;
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    min-width: unset;
+  }
+  
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .color-picker {
+    justify-content: center;
+  }
+  
+  .days-grid {
+    gap: 0.25rem;
+  }
+  
+  .day-checkbox {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+/* Tablet devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .habits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    padding: 0 1.5rem;
+  }
+  
+  .filter-controls {
+    flex-direction: row;
+  }
+  
+  .add-habit-form {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop devices (769px to 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .main-content {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .add-habit-form {
+    flex-direction: row;
+    align-items: end;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    flex: 1;
+  }
+  
+  .btn {
+    width: auto;
+    white-space: nowrap;
+  }
+  
+  .habits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .header-content {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+}
+
+/* Large desktop devices (1201px and up) */
+@media (min-width: 1201px) {
+  .main-content {
+    padding: 2rem;
+    max-width: 1400px;
+  }
+  
+  .add-habit-section {
+    padding: 2rem;
+  }
+  
+  .filter-section {
+    padding: 2rem;
+  }
+  
+  .habit-card {
+    padding: 2rem;
+  }
+  
+  .habits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+  }
+  
+  .header-content {
+    max-width: 1400px;
+    padding: 0 2rem;
+  }
+}
+
+/* Ultra-wide screens (1600px and up) */
+@media (min-width: 1600px) {
+  .main-content {
+    max-width: 1600px;
+  }
+  
+  .habits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+  }
+  
+  .header-content {
+    max-width: 1600px;
+  }
+}

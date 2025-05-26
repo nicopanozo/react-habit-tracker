@@ -1,0 +1,40 @@
+/* ============================================
+   COLOR PICKER COMPONENT STYLES
+   ============================================ */
+
+.color-picker {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.color-option.selected {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.color-check {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
