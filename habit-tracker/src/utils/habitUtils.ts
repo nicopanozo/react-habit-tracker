@@ -33,21 +33,19 @@ export function isHabitCompleted(habit: Habit): boolean {
 }
 
 export function calculateStreak(habit: Habit): number {
-  const today = new Date().getDay();
-  const dayMap = [6, 0, 1, 2, 3, 4, 5]; // Sunday is 0 in JS, but we want it as index 6
-  const todayIndex = dayMap[today];
+  let maxStreak = 0;
+  let currentStreak = 0;
   
-  let streak = 0;
-  for (let i = 0; i < 7; i++) {
-    const dayIndex = (todayIndex - i + 7) % 7;
-    const dayName = DAYS_OF_WEEK[dayIndex];
-    if (habit.completedDays[dayName]) {
-      streak++;
+  for (const day of DAYS_OF_WEEK) {
+    if (habit.completedDays[day]) {
+      currentStreak++;
+      maxStreak = Math.max(maxStreak, currentStreak);
     } else {
-      break;
+      currentStreak = 0;
     }
   }
-  return streak;
+  
+  return maxStreak;
 }
 
 export function saveHabitsToStorage(habits: Habit[]): void {
