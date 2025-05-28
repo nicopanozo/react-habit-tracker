@@ -10,6 +10,7 @@ import './App.css';
 
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);
+  const [habitsLoaded, setHabitsLoaded] = useState(false);
   const [filter, setFilter] = useState<FilterType>('all');
   const [sortBy, setSortBy] = useState<SortType>('created');
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -20,11 +21,14 @@ function App() {
   useEffect(() => {
     const savedHabits = loadHabitsFromStorage();
     setHabits(savedHabits);
+    setHabitsLoaded(true);
   }, []);
 
   useEffect(() => {
-    saveHabitsToStorage(habits);
-  }, [habits]);
+    if (habitsLoaded) {
+      saveHabitsToStorage(habits);
+    }
+  }, [habits, habitsLoaded]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
