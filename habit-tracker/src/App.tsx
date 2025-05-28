@@ -32,7 +32,6 @@ function App() {
 
   useEffect(() => {
     const savedTheme = loadThemeFromStorage();
-    console.log('Loaded theme from storage:', savedTheme); // Debug log
     setTheme(savedTheme);
     setThemeLoaded(true);
   }, []);
@@ -44,7 +43,6 @@ function App() {
   }, [habits, habitsLoaded]);
 
   useEffect(() => {
-    console.log('Setting theme:', theme, 'Theme loaded:', themeLoaded); // Debug log
     document.documentElement.setAttribute('data-theme', theme);
     
     if (themeLoaded) {
