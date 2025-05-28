@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import type { Habit, HabitFormData, EditHabitData, FilterType, SortType, Theme, DayOfWeek } from './types/Habit';
+import type { Habit, HabitFormData, EditHabitData, FilterType, SortType, DayOfWeek } from './types/Habit';
+import type { Theme } from './types/Theme';
 import { generateId, saveHabitsToStorage, loadHabitsFromStorage, createEmptyHabitDays, calculateStreak } from './utils/habitUtils';
+import { saveThemeToStorage, loadThemeFromStorage } from './utils/themeUtils';
 import Header from './components/Header';
 import AddHabitForm from './components/AddHabitForm';
 import HabitsFilter from './components/HabitsFilter';
@@ -18,6 +20,7 @@ function App() {
   const [sortBy, setSortBy] = useState<SortType>('created');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [theme, setTheme] = useState<Theme>('light');
+  const [themeLoaded, setThemeLoaded] = useState(false); // Nuevo estado
   const [editingHabit, setEditingHabit] = useState<Habit | null>(null);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState<string | null>(null);
 
@@ -28,14 +31,26 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const savedTheme = loadThemeFromStorage();
+    console.log('Loaded theme from storage:', savedTheme); // Debug log
+    setTheme(savedTheme);
+    setThemeLoaded(true);
+  }, []);
+
+  useEffect(() => {
     if (habitsLoaded) {
       saveHabitsToStorage(habits);
     }
   }, [habits, habitsLoaded]);
 
   useEffect(() => {
+    console.log('Setting theme:', theme, 'Theme loaded:', themeLoaded); // Debug log
     document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
+    
+    if (themeLoaded) {
+      saveThemeToStorage(theme);
+    }
+  }, [theme, themeLoaded]);
 
   const addHabit = (habitData: HabitFormData): void => {
     const newHabit: Habit = {
@@ -84,7 +99,7 @@ function App() {
   };
 
   const toggleTheme = (): void => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme((prev: Theme) => prev === 'light' ? 'dark' : 'light');
   };
 
   const filteredAndSortedHabits = habits

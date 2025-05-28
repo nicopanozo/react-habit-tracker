@@ -22,5 +22,3 @@ export interface EditHabitData {
 export type FilterType = 'all' | 'completed' | 'incomplete';
 
 export type SortType = 'name' | 'streak' | 'created';
-
-export type Theme = 'light' | 'dark';

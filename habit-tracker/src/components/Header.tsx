@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Theme } from '../types/Habit';
+import type { Theme } from '../types/Theme';
 import '../styles/components/Header.css';
 
 interface HeaderProps {
