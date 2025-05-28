@@ -17,13 +17,13 @@ function AddHabitForm({ onAddHabit }: AddHabitFormProps) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (name.trim()) {
       onAddHabit({
         name: name.trim(),
-        color: selectedColor
+        color: selectedColor,
       });
-      
+
       setName('');
       setSelectedColor(HABIT_COLORS[0]);
       setIsExpanded(false);
@@ -42,7 +42,7 @@ function AddHabitForm({ onAddHabit }: AddHabitFormProps) {
           {isExpanded ? '−' : '+'}
         </button>
       </div>
-      
+
       {isExpanded && (
         <form className="add-habit-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -55,12 +55,12 @@ function AddHabitForm({ onAddHabit }: AddHabitFormProps) {
               className="form-input"
               placeholder="Enter habit name..."
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
               maxLength={50}
               required
             />
           </div>
-          
+
           <div className="form-group">
             <label className="form-label">Choose Color</label>
             <ColorPicker
@@ -69,9 +69,9 @@ function AddHabitForm({ onAddHabit }: AddHabitFormProps) {
               onColorSelect={setSelectedColor}
             />
           </div>
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="btn btn-primary"
             disabled={!name.trim()}
           >

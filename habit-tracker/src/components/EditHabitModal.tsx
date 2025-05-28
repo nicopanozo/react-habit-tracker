@@ -29,12 +29,12 @@ function EditHabitModal({ habit, onSave, onClose }: EditHabitModalProps) {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    
+
     if (name.trim()) {
       onSave({
         id: habit.id,
         name: name.trim(),
-        color: selectedColor
+        color: selectedColor,
       });
     }
   };
@@ -69,13 +69,13 @@ function EditHabitModal({ habit, onSave, onClose }: EditHabitModalProps) {
               type="text"
               className="form-input"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
               maxLength={50}
               required
               autoFocus
             />
           </div>
-          
+
           <div className="form-group">
             <label className="form-label">Choose Color</label>
             <ColorPicker
@@ -84,17 +84,17 @@ function EditHabitModal({ habit, onSave, onClose }: EditHabitModalProps) {
               onColorSelect={setSelectedColor}
             />
           </div>
-          
+
           <div className="modal-actions">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="btn btn-secondary"
               onClick={onClose}
             >
               Cancel
             </button>
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="btn btn-primary"
               disabled={!name.trim()}
             >

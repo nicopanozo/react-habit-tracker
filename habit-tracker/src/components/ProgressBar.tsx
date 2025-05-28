@@ -10,17 +10,15 @@ function ProgressBar({ percentage, color }: ProgressBarProps) {
   return (
     <div className="progress-bar-container">
       <div className="progress-bar-track">
-        <div 
+        <div
           className="progress-bar-fill"
-          style={{ 
+          style={{
             width: `${percentage}%`,
-            backgroundColor: color
+            backgroundColor: color,
           }}
         />
       </div>
-      <span className="progress-percentage">
-        {percentage}%
-      </span>
+      <span className="progress-percentage">{percentage}%</span>
     </div>
   );
 }

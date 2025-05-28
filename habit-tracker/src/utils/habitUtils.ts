@@ -2,7 +2,13 @@ import type { Habit } from '../types/Habit';
 import type { DayOfWeek } from '../types/Habit';
 
 export const DAYS_OF_WEEK: DayOfWeek[] = [
-  'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+  'sunday',
 ];
 
 export const DAYS_DISPLAY_NAMES: Record<DayOfWeek, string> = {
@@ -12,7 +18,7 @@ export const DAYS_DISPLAY_NAMES: Record<DayOfWeek, string> = {
   thursday: 'Thu',
   friday: 'Fri',
   saturday: 'Sat',
-  sunday: 'Sun'
+  sunday: 'Sun',
 };
 
 export function generateId(): string {
@@ -35,7 +41,7 @@ export function isHabitCompleted(habit: Habit): boolean {
 export function calculateStreak(habit: Habit): number {
   let maxStreak = 0;
   let currentStreak = 0;
-  
+
   for (const day of DAYS_OF_WEEK) {
     if (habit.completedDays[day]) {
       currentStreak++;
@@ -44,7 +50,7 @@ export function calculateStreak(habit: Habit): number {
       currentStreak = 0;
     }
   }
-  
+
   return maxStreak;
 }
 
@@ -60,7 +66,7 @@ export function loadHabitsFromStorage(): Habit[] {
   try {
     const storedHabits = localStorage.getItem('habits');
     if (!storedHabits) return [];
-    
+
     const parsed = JSON.parse(storedHabits);
     return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
@@ -77,6 +83,6 @@ export function createEmptyHabitDays(): Record<DayOfWeek, boolean> {
     thursday: false,
     friday: false,
     saturday: false,
-    sunday: false
+    sunday: false,
   };
 }
