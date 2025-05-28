@@ -7,10 +7,14 @@ interface ColorPickerProps {
   onColorSelect: (color: string) => void;
 }
 
-function ColorPicker({ colors, selectedColor, onColorSelect }: ColorPickerProps) {
+function ColorPicker({
+  colors,
+  selectedColor,
+  onColorSelect,
+}: ColorPickerProps) {
   return (
     <div className="color-picker">
-      {colors.map((color) => (
+      {colors.map(color => (
         <button
           key={color}
           type="button"
@@ -19,9 +23,7 @@ function ColorPicker({ colors, selectedColor, onColorSelect }: ColorPickerProps)
           onClick={() => onColorSelect(color)}
           aria-label={`Select color ${color}`}
         >
-          {selectedColor === color && (
-            <span className="color-check">✓</span>
-          )}
+          {selectedColor === color && <span className="color-check">✓</span>}
         </button>
       ))}
     </div>

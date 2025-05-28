@@ -10,7 +10,13 @@ interface HeaderProps {
   completedHabits: number;
 }
 
-function Header({ theme, onToggleTheme, onResetProgress, totalHabits, completedHabits }: HeaderProps) {
+function Header({
+  theme,
+  onToggleTheme,
+  onResetProgress,
+  totalHabits,
+  completedHabits,
+}: HeaderProps) {
   return (
     <header className="header">
       <div className="header-content">
@@ -22,7 +28,7 @@ function Header({ theme, onToggleTheme, onResetProgress, totalHabits, completedH
             </span>
           </div>
         </div>
-        
+
         <div className="header-actions">
           <button
             className="btn btn-secondary"
@@ -31,7 +37,7 @@ function Header({ theme, onToggleTheme, onResetProgress, totalHabits, completedH
           >
             Reset Progress
           </button>
-          
+
           <button
             className="theme-toggle"
             onClick={onToggleTheme}

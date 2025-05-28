@@ -23,8 +23,8 @@
   :root {
     --border-color: #000000;
   }
-  
-  [data-theme="dark"] {
+
+  [data-theme='dark'] {
     --border-color: #ffffff;
   }
 }

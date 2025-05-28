@@ -6,4 +6,4 @@ export const HABIT_COLORS = [
   '#FFEAA7', // Yellow
 ] as const;
 
-export type HabitColor = typeof HABIT_COLORS[number];
+export type HabitColor = (typeof HABIT_COLORS)[number];

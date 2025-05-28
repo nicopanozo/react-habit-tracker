@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import type { Habit, HabitFormData, EditHabitData, FilterType, SortType, DayOfWeek } from './types/Habit';
+import type {
+  Habit,
+  HabitFormData,
+  EditHabitData,
+  FilterType,
+  SortType,
+  DayOfWeek,
+} from './types/Habit';
 import type { Theme } from './types/Theme';
-import { generateId, saveHabitsToStorage, loadHabitsFromStorage, createEmptyHabitDays, calculateStreak } from './utils/habitUtils';
+import {
+  generateId,
+  saveHabitsToStorage,
+  loadHabitsFromStorage,
+  createEmptyHabitDays,
+  calculateStreak,
+} from './utils/habitUtils';
 import { saveThemeToStorage, loadThemeFromStorage } from './utils/themeUtils';
 import Header from './components/Header';
 import AddHabitForm from './components/AddHabitForm';
@@ -12,7 +25,6 @@ import './App.css';
 import './styles/components/Button.css';
 import './styles/components/Modal.css';
 
-
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);
   const [habitsLoaded, setHabitsLoaded] = useState(false);
@@ -22,7 +34,9 @@ function App() {
   const [theme, setTheme] = useState<Theme>('light');
   const [themeLoaded, setThemeLoaded] = useState(false); // Nuevo estado
   const [editingHabit, setEditingHabit] = useState<Habit | null>(null);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState<string | null>(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     const savedHabits = loadHabitsFromStorage();
@@ -44,7 +58,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    
+
     if (themeLoaded) {
       saveThemeToStorage(theme);
     }
@@ -56,17 +70,19 @@ function App() {
       name: habitData.name,
       color: habitData.color,
       completedDays: createEmptyHabitDays(),
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
     setHabits(prev => [...prev, newHabit]);
   };
 
   const updateHabit = (editData: EditHabitData): void => {
-    setHabits(prev => prev.map(habit => 
-      habit.id === editData.id 
-        ? { ...habit, name: editData.name, color: editData.color }
-        : habit
-    ));
+    setHabits(prev =>
+      prev.map(habit =>
+        habit.id === editData.id
+          ? { ...habit, name: editData.name, color: editData.color }
+          : habit
+      )
+    );
     setEditingHabit(null);
   };
 
@@ -76,35 +92,43 @@ function App() {
   };
 
   const toggleHabitDay = (habitId: string, day: DayOfWeek): void => {
-    setHabits(prev => prev.map(habit => 
-      habit.id === habitId 
-        ? { 
-            ...habit, 
-            completedDays: { 
-              ...habit.completedDays, 
-              [day]: !habit.completedDays[day] 
-            } 
-          }
-        : habit
-    ));
+    setHabits(prev =>
+      prev.map(habit =>
+        habit.id === habitId
+          ? {
+              ...habit,
+              completedDays: {
+                ...habit.completedDays,
+                [day]: !habit.completedDays[day],
+              },
+            }
+          : habit
+      )
+    );
   };
 
   const resetAllProgress = (): void => {
-    setHabits(prev => prev.map(habit => ({
-      ...habit,
-      completedDays: createEmptyHabitDays()
-    })));
+    setHabits(prev =>
+      prev.map(habit => ({
+        ...habit,
+        completedDays: createEmptyHabitDays(),
+      }))
+    );
   };
 
   const toggleTheme = (): void => {
-    setTheme((prev: Theme) => prev === 'light' ? 'dark' : 'light');
+    setTheme((prev: Theme) => (prev === 'light' ? 'dark' : 'light'));
   };
 
   const filteredAndSortedHabits = habits
     .filter(habit => {
-      const matchesSearch = habit.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const completedDaysCount = Object.values(habit.completedDays).filter(Boolean).length;
-      
+      const matchesSearch = habit.name
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+      const completedDaysCount = Object.values(habit.completedDays).filter(
+        Boolean
+      ).length;
+
       switch (filter) {
         case 'completed':
           return matchesSearch && completedDaysCount === 7;
@@ -122,23 +146,29 @@ function App() {
           return calculateStreak(b) - calculateStreak(a);
         case 'created':
         default:
-          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          return (
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          );
       }
     });
 
   return (
     <div className="app">
-      <Header 
+      <Header
         theme={theme}
         onToggleTheme={toggleTheme}
         onResetProgress={resetAllProgress}
         totalHabits={habits.length}
-        completedHabits={habits.filter(h => Object.values(h.completedDays).filter(Boolean).length === 7).length}
+        completedHabits={
+          habits.filter(
+            h => Object.values(h.completedDays).filter(Boolean).length === 7
+          ).length
+        }
       />
-      
+
       <main className="main-content">
         <AddHabitForm onAddHabit={addHabit} />
-        
+
         <HabitsFilter
           filter={filter}
           onFilterChange={setFilter}
@@ -147,7 +177,7 @@ function App() {
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
         />
-        
+
         <HabitsList
           habits={filteredAndSortedHabits}
           onToggleDay={toggleHabitDay}
@@ -168,15 +198,18 @@ function App() {
         <div className="modal-overlay">
           <div className="delete-confirm-modal">
             <h3>Delete Habit</h3>
-            <p>Are you sure you want to delete this habit? This action cannot be undone.</p>
+            <p>
+              Are you sure you want to delete this habit? This action cannot be
+              undone.
+            </p>
             <div className="modal-actions">
-              <button 
+              <button
                 className="btn btn-secondary"
                 onClick={() => setShowDeleteConfirm(null)}
               >
                 Cancel
               </button>
-              <button 
+              <button
                 className="btn btn-danger"
                 onClick={() => deleteHabit(showDeleteConfirm)}
               >

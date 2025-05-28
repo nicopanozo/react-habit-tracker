@@ -11,13 +11,13 @@ interface HabitsFilterProps {
   onSearchChange: (term: string) => void;
 }
 
-function HabitsFilter({ 
-  filter, 
-  onFilterChange, 
-  sortBy, 
-  onSortChange, 
-  searchTerm, 
-  onSearchChange 
+function HabitsFilter({
+  filter,
+  onFilterChange,
+  sortBy,
+  onSortChange,
+  searchTerm,
+  onSearchChange,
 }: HabitsFilterProps) {
   return (
     <div className="habits-filter">
@@ -28,32 +28,36 @@ function HabitsFilter({
             className="search-input"
             placeholder="Search habits..."
             value={searchTerm}
-            onChange={(e) => onSearchChange(e.target.value)}
+            onChange={e => onSearchChange(e.target.value)}
           />
         </div>
-        
+
         <div className="filter-controls">
           <div className="filter-group">
-            <label htmlFor="filter-select" className="filter-label">Filter:</label>
+            <label htmlFor="filter-select" className="filter-label">
+              Filter:
+            </label>
             <select
               id="filter-select"
               className="filter-select"
               value={filter}
-              onChange={(e) => onFilterChange(e.target.value as FilterType)}
+              onChange={e => onFilterChange(e.target.value as FilterType)}
             >
               <option value="all">All Habits</option>
               <option value="completed">Completed</option>
               <option value="incomplete">Incomplete</option>
             </select>
           </div>
-          
+
           <div className="filter-group">
-            <label htmlFor="sort-select" className="filter-label">Sort by:</label>
+            <label htmlFor="sort-select" className="filter-label">
+              Sort by:
+            </label>
             <select
               id="sort-select"
               className="filter-select"
               value={sortBy}
-              onChange={(e) => onSortChange(e.target.value as SortType)}
+              onChange={e => onSortChange(e.target.value as SortType)}
             >
               <option value="created">Date Created</option>
               <option value="name">Name</option>

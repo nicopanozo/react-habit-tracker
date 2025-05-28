@@ -10,7 +10,12 @@ interface HabitsListProps {
   onDeleteHabit: (habitId: string) => void;
 }
 
-function HabitsList({ habits, onToggleDay, onEditHabit, onDeleteHabit }: HabitsListProps) {
+function HabitsList({
+  habits,
+  onToggleDay,
+  onEditHabit,
+  onDeleteHabit,
+}: HabitsListProps) {
   if (habits.length === 0) {
     return (
       <div className="empty-state">
@@ -25,7 +30,7 @@ function HabitsList({ habits, onToggleDay, onEditHabit, onDeleteHabit }: HabitsL
   return (
     <div className="habits-list">
       <div className="habits-grid">
-        {habits.map((habit) => (
+        {habits.map(habit => (
           <HabitCard
             key={habit.id}
             habit={habit}

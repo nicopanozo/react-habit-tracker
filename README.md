@@ -13,13 +13,25 @@ Habit Tracker Preview
 - Responsive Design: Fully responsive design that works on all devices
 - Local Storage: Automatically saves your progress locally
 - Accessibility: WCAG compliant with keyboard navigation and screen reader support
-## 🚀 Technologies Used
-- React 19 - Modern React with latest features
-- TypeScript - Type-safe development
-- Vite - Fast build tool and development server
-- CSS3 - Modern CSS with custom properties and grid/flexbox
-- Lucide React - Beautiful icons
-- ESLint - Code linting and formatting
+
+## 🏗️ Tech Stack
+
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **CSS3** - Styling
+- **Lucide React** - Icons
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+
+## 🔧 Development Guidelines
+
+This project uses ESLint and Prettier for code quality and formatting:
+
+- Code is automatically formatted on save
+- Run `npm run lint` to check for issues
+- Run `npm run format` to format all files
+- Follow the established TypeScript and React best practices
 
 ## 📱 Screenshots
 
@@ -61,6 +73,17 @@ npm run build
 ```
 
 The built files will be in the dist directory.
+
+## 🛠️ Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Check code for linting errors
+- `npm run lint:fix` - Fix linting errors automatically
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code is properly formatted
+
 ## 🎯 Usage
 Adding a Habit
 1. Click the "+" button in the "Add New Habit" section
@@ -117,6 +140,7 @@ Color-Coded Habits: 5 predefined colors to categorize habits
 Visual Progress: Progress bars and completion badges
 Responsive Grid: Adaptive layout for different screen sizes
 Hover Effects: Interactive elements with visual feedback
+
 ## ♿ Accessibility
 Full keyboard navigation support
 ARIA labels and descriptions
@@ -124,30 +148,29 @@ High contrast mode support
 Reduced motion preferences
 Screen reader compatibility
 Focus management for modals
+
 ## 🌐 Browser Support
 Chrome/Chromium 88+
 Firefox 85+
 Safari 14+
 Edge 88+
+
 ## 📈 Performance
 Lightweight: Minimal bundle size with tree-shaking
 Fast Loading: Vite's optimized build process
 Efficient Rendering: React 19's concurrent features
 Local Storage: No external API calls required
+
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-1.
-Fork the project
-2.
-Create your feature branch (git checkout -b feature/AmazingFeature)
-3.
-Commit your changes (git commit -m 'Add some AmazingFeature')
-4.
-Push to the branch (git push origin feature/AmazingFeature)
-5.
-Open a Pull Request
+1. Fork the project
+2. Create your feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+
 ## 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License
 
 ## 🔮 Future Enhancements
 Monthly/yearly habit tracking views
@@ -158,13 +181,16 @@ Reminder notifications
 Multiple habit templates
 Social sharing features
 Backend integration for cloud sync
+
 ## 👨‍💻 Author
-Your Name
-Portfolio: yourportfolio.com
-LinkedIn: linkedin.com/in/yourprofile
-GitHub: @yourusername
-🙏 Acknowledgments
-Icons provided by Lucide React
-Design inspiration from modern productivity apps
-Typography using Inter font family
-⭐ If you found this project helpful, please give it a star!
+
+Nicolas Panozo - Digital Academy Frontend Development
+
+Portfolio: [React Portfolio URL](https://portfolio-react-node-npanozo.vercel.app/)
+
+LinkedIn: [LinkedIn](https://linkedin.com/in/nicolas-panozo)
+
+GitHub: @nicopanozo
+---
+
+Made with ❤️ and React
