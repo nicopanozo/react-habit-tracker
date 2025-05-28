@@ -3,6 +3,8 @@ import type { Habit } from '../types/Habit';
 import type { DayOfWeek } from '../types/Habit';
 import { DAYS_OF_WEEK, DAYS_DISPLAY_NAMES, getCompletedDaysCount, getCompletionPercentage, isHabitCompleted, calculateStreak } from '../utils/habitUtils';
 import ProgressBar from './ProgressBar';
+import '../styles/components/HabitCard.css';
+import '../styles/components/Button.css';
 
 interface HabitCardProps {
   habit: Habit;

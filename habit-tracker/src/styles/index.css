@@ -1,17 +1,6 @@
 /* Base styles and variables */
 @import './reset.css';
 
-/* Component styles */
-@import './components/Header.css';
-@import './components/Button.css';
-@import './components/AddHabitForm.css';
-@import './components/ColorPicker.css';
-@import './components/HabitsFilter.css';
-@import './components/HabitsList.css';
-@import './components/HabitCard.css';
-@import './components/ProgressBar.css';
-@import './components/Modal.css';
-
-/* Responsive and accessibility */
+/* Global responsive and accessibility styles */
 @import './responsive.css';
 @import './accessibility.css';

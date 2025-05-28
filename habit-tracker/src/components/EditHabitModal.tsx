@@ -3,6 +3,8 @@ import type { FormEvent } from 'react';
 import type { Habit, EditHabitData } from '../types/Habit';
 import { HABIT_COLORS } from '../constants/colors';
 import ColorPicker from './ColorPicker';
+import '../styles/components/Modal.css';
+import '../styles/components/Button.css';
 
 interface EditHabitModalProps {
   habit: Habit;

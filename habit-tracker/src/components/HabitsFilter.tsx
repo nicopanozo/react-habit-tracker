@@ -1,5 +1,6 @@
 import React from 'react';
 import type { FilterType, SortType } from '../types/Habit';
+import '../styles/components/HabitsFilter.css';
 
 interface HabitsFilterProps {
   filter: FilterType;

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Habit, DayOfWeek } from '../types/Habit';
 import HabitCard from './HabitCard';
+import '../styles/components/HabitsList.css';
 
 interface HabitsListProps {
   habits: Habit[];

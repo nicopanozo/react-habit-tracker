@@ -7,6 +7,9 @@ import HabitsFilter from './components/HabitsFilter';
 import HabitsList from './components/HabitsList';
 import EditHabitModal from './components/EditHabitModal';
 import './App.css';
+import './styles/components/Button.css';
+import './styles/components/Modal.css';
+
 
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);

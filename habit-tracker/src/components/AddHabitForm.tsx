@@ -3,6 +3,8 @@ import type { FormEvent } from 'react';
 import type { HabitFormData } from '../types/Habit';
 import { HABIT_COLORS } from '../constants/colors';
 import ColorPicker from './ColorPicker';
+import '../styles/components/AddHabitForm.css';
+import '../styles/components/Button.css';
 
 interface AddHabitFormProps {
   onAddHabit: (habitData: HabitFormData) => void;
