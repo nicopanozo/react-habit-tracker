@@ -161,6 +161,14 @@ Fast Loading: Vite's optimized build process
 Efficient Rendering: React 19's concurrent features
 Local Storage: No external API calls required
 
+## Run a Docker container locally
+```bash
+npm run build
+docker build -t react-habit-tracker .
+docker rm -f habit-tracker
+docker run -d -p 8080:80 --name habit-tracker react-habit-tracker
+```
+
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 1. Fork the project
